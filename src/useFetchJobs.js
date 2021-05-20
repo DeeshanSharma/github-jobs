@@ -10,14 +10,24 @@ function useFetchJob(props) {
 
 	useEffect(() => {
 		dispatch({ type: ACTIONS.GET_DATA });
+		const source = axios.CancelToken.source();
 		axios
 			.get(baseUrl, {
+				cancelToken: source.token,
 				params: {
 					markdown: true,
 				},
 			})
 			.then((res) => dispatch({ type: ACTIONS.SET_DATA, payload: { jobs: res.data } }))
-			.catch((err) => dispatch({ type: ACTIONS.ERROR, payload: { error: err } }));
+			.catch((err) => {
+				if (axios.isCancel(err)) return;
+				else {
+					dispatch({ type: ACTIONS.ERROR, payload: { error: err } });
+				}
+			});
+		return () => {
+			source.cancel();
+		};
 	}, []);
 
 	return state;
