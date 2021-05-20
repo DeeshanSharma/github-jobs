@@ -7223,6 +7223,7 @@ fsevents@^1.2.7:
     "@testing-library/react": ^11.1.0
     "@testing-library/user-event": ^12.1.10
     axios: ^0.21.1
+    markdown-to-jsx: ^7.1.2
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scripts: 4.0.3
@@ -9780,6 +9781,15 @@ fsevents@^1.2.7:
   dependencies:
     object-visit: ^1.0.0
   checksum: 9e85e6d802183927229d9ad04d70a0e0c7225451994605674d3ed4e4a21f817b4d9aba42a775e98078ffe47cf67df44a50eb07f965f14afead5015c8692503bd
+  languageName: node
+  linkType: hard
+
+"markdown-to-jsx@npm:^7.1.2":
+  version: 7.1.2
+  resolution: "markdown-to-jsx@npm:7.1.2"
+  peerDependencies:
+    react: ">= 0.14.0"
+  checksum: 4a211aba6af98525dc08e944eb13c92fe25261d5a8b00d4f22923f928737d8fbd345c52ec119a09a227a478acfa8d2a6ef3a5ea560cd6b01c4ba34d728259a97
   languageName: node
   linkType: hard
 

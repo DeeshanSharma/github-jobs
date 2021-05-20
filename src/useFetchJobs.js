@@ -5,7 +5,7 @@ import ACTIONS from "./reducer/actionTypes";
 
 const baseUrl = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
 
-function useFetchJob() {
+function useFetchJob(params) {
 	let [state, dispatch] = useReducer(reducer, { jobs: [], loading: false, error: false, jobsAvailable: true });
 
 	useEffect(() => {
@@ -16,6 +16,7 @@ function useFetchJob() {
 				cancelToken: source.token,
 				params: {
 					markdown: true,
+					...params,
 				},
 			})
 			.then((res) => dispatch({ type: ACTIONS.SET_DATA, payload: { jobs: res.data } }))
@@ -28,7 +29,7 @@ function useFetchJob() {
 		return () => {
 			source.cancel();
 		};
-	}, []);
+	}, [params]);
 
 	return state;
 }
