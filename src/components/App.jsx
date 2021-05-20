@@ -6,9 +6,9 @@ function App() {
 
 	return (
 		<Container>
-			{loading && <h1>Loading...</h1>}
-			{error && <h1>Something went wrong..! Please try refreshing</h1>}
-			<Typography variant="h1">{jobs.length}</Typography>
+			{loading && <Typography variant="h4">Loading...</Typography>}
+			{error && <Typography variant="h4">Something went wrong..! Please try refreshing</Typography>}
+			{jobs.length > 0 && <Typography variant="h1">{jobs.length}</Typography>}
 		</Container>
 	);
 }

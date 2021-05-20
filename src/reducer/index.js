@@ -5,9 +5,9 @@ function reducer(state, action) {
 		case ACTIONS.GET_DATA:
 			return { loading: true, jobs: [] };
 		case ACTIONS.SET_DATA:
-			return { ...state, jobs: action.payload.jobs };
+			return { ...state, loading: false, jobs: action.payload.jobs };
 		case ACTIONS.ERROR:
-			return { ...state, error: true };
+			return { loading: false, error: action.payload.error, jobs: [] };
 		default:
 			return state;
 	}
