@@ -22,6 +22,9 @@ function Search(props) {
 			<input type="checkbox" name="full_time" />
 			<label htmlFor="full_time">Full Time</label>
 			<button type="submit">Search</button>
+			<button type="reset" onClick={() => props.setParams({})}>
+				Reset
+			</button>
 		</form>
 	);
 }
