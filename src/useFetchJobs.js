@@ -3,19 +3,20 @@ import axios from "axios";
 import reducer from "./reducer";
 import ACTIONS from "./reducer/actionTypes";
 
-const baseUrl = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json";
+const baseUrl = "https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json";
 
-function useFetchJob(params) {
-	let [state, dispatch] = useReducer(reducer, { jobs: [], loading: false, error: false, jobsAvailable: true });
+function useFetchJob(params, page) {
+	let [state, dispatch] = useReducer(reducer, { jobs: [], loading: false, error: false, jobsAvailable: true, nextPageAvailable: false });
 
 	useEffect(() => {
 		dispatch({ type: ACTIONS.GET_DATA });
-		const source = axios.CancelToken.source();
+		const source1 = axios.CancelToken.source();
 		axios
 			.get(baseUrl, {
-				cancelToken: source.token,
+				cancelToken: source1.token,
 				params: {
 					markdown: true,
+					page: page,
 					...params,
 				},
 			})
@@ -26,10 +27,26 @@ function useFetchJob(params) {
 					dispatch({ type: ACTIONS.ERROR, payload: { error: err } });
 				}
 			});
+
+		const source2 = axios.CancelToken.source();
+		axios
+			.get(baseUrl, {
+				cancelToken: source2.token,
+				params: {
+					markdown: true,
+					page: page + 1,
+					...params,
+				},
+			})
+			.then((res) => dispatch({ type: ACTIONS.NEXT_PAGE_AVAILABLE, payload: { jobs: res.data } }))
+			.catch((err) => {
+				if (axios.isCancel(err)) return;
+			});
 		return () => {
-			source.cancel();
+			source1.cancel();
+			source2.cancel();
 		};
-	}, [params]);
+	}, [page, params]);
 
 	return state;
 }

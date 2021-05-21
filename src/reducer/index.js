@@ -15,6 +15,11 @@ function reducer(state, action) {
 			return checkJob(state, action);
 		case ACTIONS.ERROR:
 			return { loading: false, error: action.payload.error, jobs: [] };
+		case ACTIONS.NEXT_PAGE_AVAILABLE:
+			if (action.payload.jobs.length > 0) {
+				return { ...state, nextPageAvailable: true };
+			}
+			return { ...state, nextPageAvailable: false };
 		default:
 			return state;
 	}
