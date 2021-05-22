@@ -1,16 +1,24 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Page from "@material-ui/lab/Pagination";
+
+const useStyles = makeStyles((theme) => ({
+	root: {
+		display: "flex",
+		justifyContent: "center",
+		"& > *": {
+			margin: theme.spacing(2),
+		},
+	},
+}));
 
 function Pagination(props) {
+	const classes = useStyles();
 	let page = props.page + 1;
 	return (
-		<>
-			{page !== 1 && <button onClick={() => props.setPage(props.page - 1)}>prev</button>}
-			{page > 1 && <button onClick={() => props.setPage(0)}>1</button>}
-			{page > 2 && <button onClick={() => props.setPage(1)}>...</button>}
-			<button>{page}</button>
-			{props.nextPageAvailable && <button onClick={() => props.setPage(props.page + 1)}>{page + 1}</button>}
-			{props.nextPageAvailable && <button onClick={() => props.setPage(props.page + 1)}>next</button>}
-		</>
+		<div className={classes.root}>
+			<Page size="large" shape="rounded" page={page} count={props.nextPageAvailable ? page + 1 : page} color="secondary" onChange={(event, page) => props.setPage(page - 1)} />
+		</div>
 	);
 }
 
