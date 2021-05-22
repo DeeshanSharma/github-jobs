@@ -1,0 +1,9 @@
+body {
+	margin: 0;
+	padding: 0;
+	transition: all 150ms ease-in-out;
+}
+
+button {
+	transition: all 150ms ease-in-out;
+}
