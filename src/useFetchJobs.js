@@ -3,7 +3,7 @@ import axios from "axios";
 import reducer from "./reducer";
 import ACTIONS from "./reducer/actionTypes";
 
-const baseUrl = "https://jobs.github.com/positions.json";
+const baseUrl = `${process.env.REACT_APP_PROXY}https://jobs.github.com/positions.json`;
 
 function useFetchJob(params, page) {
 	let [state, dispatch] = useReducer(reducer, { jobs: [], loading: false, error: false, jobsAvailable: true, nextPageAvailable: false });
