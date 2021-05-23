@@ -3,7 +3,7 @@ import axios from "axios";
 import reducer from "./reducer";
 import ACTIONS from "./reducer/actionTypes";
 
-const baseUrl = "https://thingproxy.freeboard.io/fetch/https://jobs.github.com/positions.json";
+const baseUrl = "https://jobs.github.com/positions.json";
 
 function useFetchJob(params, page) {
 	let [state, dispatch] = useReducer(reducer, { jobs: [], loading: false, error: false, jobsAvailable: true, nextPageAvailable: false });
