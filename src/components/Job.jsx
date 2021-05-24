@@ -100,7 +100,7 @@ function Jobs(props) {
 			</CardActions>
 			<Collapse in={expanded} timeout="auto" unmountOnExit>
 				<CardContent>
-					<Typography variant="body1">
+					<Typography variant="body1" style={{ textAlign: "left" }}>
 						<Markdown>{props.job.description}</Markdown>
 					</Typography>
 				</CardContent>
