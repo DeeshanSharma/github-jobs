@@ -11,9 +11,6 @@
 # testing
 /coverage
 
-# Config
-*/config
-
 # production
 /build
 

@@ -5,6 +5,7 @@ import WorkIcon from "@material-ui/icons/Work";
 import SunIcon from "@material-ui/icons/WbSunny";
 import MoonIcon from "@material-ui/icons/Brightness3";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import Warning from "./Warning";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -45,7 +46,7 @@ function Header(props) {
 						GitHub Jobs
 					</Typography>
 					<Tooltip TransitionComponent={Zoom} title="View Source Code" arrow>
-						<IconButton href="https://github.com/DeeshanSharma/github-jobs" target="_blank" rel="noreferrer" aria-label="source code">
+						<IconButton href="https://github.com/DeeshanSharma/github-jobs" target="_blank" rel="noopener noreferrer" aria-label="source code">
 							<GitHubIcon fontSize="large" />
 						</IconButton>
 					</Tooltip>
@@ -56,6 +57,7 @@ function Header(props) {
 					</Tooltip>
 				</Toolbar>
 			</AppBar>
+			<Warning />
 		</div>
 	);
 }
