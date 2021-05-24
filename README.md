@@ -1,5 +1,7 @@
 # GitHub Jobs
 
+![GitHub Jobs Demo](github-jobs-demo.gif)
+
 **_A React JS app built using the [GitHub Job](https://jobs.github.com) API and [Material-UI](https://material-ui.com) styling._** You can search for your first or next job among all the listed jobs, use filters to narrow your results and be specific to what you are looking for.
 
 This project is made for showcasing my work with **_API skills_** and using any styling **_library_** or **_framework_**. This project took me around four days to build, styling part took most time because I used Material UI for the first time.
