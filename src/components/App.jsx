@@ -4,6 +4,7 @@ import { createMuiTheme, ThemeProvider, makeStyles } from "@material-ui/core/sty
 import { DarkTheme, LightTheme } from "./Theme";
 import Header from "./Header";
 import Home from "./Home";
+import AdjustTheme from "./AdjustTheme";
 
 const useStyles = makeStyles((theme) => ({
 	themeChange: {
@@ -20,6 +21,7 @@ function App() {
 
 	useEffect(() => {
 		setDarkMode(prefersDarkMode);
+		AdjustTheme(prefersDarkMode)
 	}, [prefersDarkMode]);
 
 	const theme = useMemo(() => createMuiTheme(darkMode ? DarkTheme : LightTheme), [darkMode]);
