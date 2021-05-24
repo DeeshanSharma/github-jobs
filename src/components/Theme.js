@@ -18,6 +18,7 @@ const DarkTheme = {
 			paper: "#333",
 		},
 	},
+	warningBG: "rgba(255, 183, 0,  0.13)",
 };
 const LightTheme = {
 	palette: {
@@ -39,6 +40,7 @@ const LightTheme = {
 			default: "#f5f5f5",
 		},
 	},
+	warningBG: "rgba(255, 217, 165,  0.64)",
 };
 
 export { DarkTheme, LightTheme };
