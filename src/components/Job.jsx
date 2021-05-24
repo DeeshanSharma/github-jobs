@@ -10,7 +10,7 @@ import Markdown from "markdown-to-jsx";
 const useStyles = makeStyles((theme) => ({
 	root: {
 		maxWidth: 345,
-		margin: "40px 0",
+		marginBottom: "40px",
 		textAlign: "center",
 		wordBreak: "break-word",
 		[theme.breakpoints.down(960)]: {
@@ -85,7 +85,7 @@ function Jobs(props) {
 				<Typography variant="body1">{props.job.company}</Typography>
 			</CardContent>
 			<CardActions disableSpacing>
-				<Button variant="contained" size="small" color="primary" href={props.job.url} target="_blank" rel="noreferrer">
+				<Button variant="contained" size="small" color="primary" href={props.job.url} target="_blank" rel="noopener noreferrer">
 					Apply Now
 				</Button>
 				<IconButton
